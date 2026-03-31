@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Smartphone Classification</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+background:#0a0a0a;
+font-family:'Poppins',sans-serif;
+color:white;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+height:100vh;
+margin:0;
+}
+
+
+
+.predict-card{
+
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
+
+padding:60px;
+
+border-radius:20px;
+
+border:1px solid rgba(255,255,255,0.08);
+
+box-shadow:0 30px 80px rgba(0,0,0,0.9);
+
+text-align:center;
+
+width:420px;
+}
+
+
+
+h1{
+
+font-size:34px;
+margin-bottom:40px;
+
+background:linear-gradient(90deg,#ffffff,#f5a623);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+
+
+input{
+
+width:100%;
+
+padding:14px;
+
+margin-bottom:20px;
+
+border-radius:8px;
+
+border:none;
+
+outline:none;
+
+font-size:16px;
+
+background:#1c1c1c;
+color:white;
+
+border:1px solid rgba(255,255,255,0.1);
+
+}
+
+
+
+input::placeholder{
+color:#aaa;
+}
+
+
+
+button{
+
+padding:14px 35px;
+
+border:none;
+
+border-radius:30px;
+
+background:linear-gradient(45deg,#ff9d00,#ffb733);
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+box-shadow:0 12px 30px rgba(245,166,35,0.5);
+
+}
+
+button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 20px 40px rgba(245,166,35,0.8);
+
+}
+
+
+.dropdown{
+width:300px;
+padding:12px;
+
+border-radius:10px;
+
+background:#1a1a1a;
+color:white;
+
+border:1px solid rgba(255,255,255,0.2);
+
+font-size:16px;
+
+outline:none;
+}
+
+
+.btn{
+margin-top:15px;
+padding:12px 30px;
+
+background:#f5a623;
+border:none;
+
+color:white;
+
+border-radius:25px;
+
+font-size:16px;
+cursor:pointer;
+
+transition:0.3s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 25px rgba(245,166,35,0.6);
+}
+
+
+.back-btn{
+
+display:inline-block;
+
+margin-top:25px;
+
+color:#ccc;
+
+text-decoration:none;
+
+font-size:14px;
+
+}
+
+.back-btn:hover{
+
+color:#f5a623;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="predict-card">
+
+<h1>Smartphone Category Prediction</h1>
+
+<form action="/result" method="POST">
+
+    <form action="/result" method="POST">
+
+        <select name="model" class="dropdown" required>
+        
+        <option value="">Select iPhone Model</option>
+        
+        <option value="iphone 11">iPhone 11</option>
+        <option value="iphone 12">iPhone 12</option>
+        <option value="iphone 13">iPhone 13</option>
+        <option value="iphone 14">iPhone 14</option>
+        <option value="iphone 15">iPhone 15</option>
+        
+        <option value="iphone 15 plus">iPhone 15 Plus</option>
+        <option value="iphone 15 pro">iPhone 15 Pro</option>
+        <option value="iphone 15 pro max">iPhone 15 Pro Max</option>
+        
+        <option value="iphone 16">iPhone 16</option>
+        <option value="iphone 16 plus">iPhone 16 Plus</option>
+        <option value="iphone 16 pro">iPhone 16 Pro</option>
+        <option value="iphone 16 pro max">iPhone 16 Pro Max</option>
+        
+        <option value="iphone 17">iPhone 17</option>
+        <option value="iphone 17 pro">iPhone 17 Pro</option>
+        <option value="iphone 17 pro max">iPhone 17 Pro Max</option>
+        
+        </select>
+        
+        <br><br>
+        
+        <button type="submit" class="btn">Predict</button>
+        
+        </form>
+    
+   
+
+</form>
+
+<a href="/" class="back-btn">← Back to Home</a>
+
+</div>
+
+</body>
+
+</html>

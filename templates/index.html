@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -6,85 +7,624 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>iRevolution - Apple Impact in India</title>
+<title>iRevolution | Apple Impact in India</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
+
+
 body{
-background:#0b0b0b;
+font-family:'Poppins',sans-serif;
+background:#0a0a0a;
 color:white;
-font-family:Arial, Helvetica, sans-serif;
 scroll-behavior:smooth;
 }
 
+
+
 .navbar{
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
-border-bottom:1px solid rgba(255,255,255,0.1);
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(12px);
+padding:15px 0;
 }
 
-.nav-link{
-color:white !important;
+
+.about-card{
+
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(12px);
+
+padding:40px;
+
+border-radius:18px;
+
+border:1px solid rgba(255,255,255,0.08);
+
+box-shadow:0 25px 60px rgba(0,0,0,0.8);
+
+font-size:18px;
+line-height:1.8;
+
+color:#e4e4e4;
+
+height:100%;
+
+}
+
+
+
+.about-image{
+
+width:100%;
+height:auto;
+
+border-radius:18px;
+
+box-shadow:0 30px 70px rgba(0,0,0,0.9);
+
+transition:0.4s;
+
+object-fit:cover;
+
+}
+
+
+
+.about-image:hover{
+
+transform:scale(1.04);
+
+box-shadow:0 35px 90px rgba(245,166,35,0.5);
+
+}
+
+
+.navbar-nav .nav-link{
+
+color:#ddd;
+font-weight:500;
 margin-left:20px;
+transition:0.3s;
+
 }
 
-.nav-link:hover{
-color:#f5a623 !important;
+
+
+.navbar-nav .nav-link:hover{
+
+color:#f5a623;
+
 }
-.section{
-padding:80px 0;
+
+
+
+.navbar-nav .nav-link.active{
+
+color:#f5a623;
+font-weight:600;
+
 }
+
+
+
+.navbar-nav .nav-link{
+
+position:relative;
+
+}
+
+.navbar-nav .nav-link::after{
+
+content:"";
+
+position:absolute;
+
+width:0%;
+height:2px;
+
+background:#f5a623;
+
+left:0;
+bottom:-4px;
+
+transition:0.3s;
+
+}
+
+.navbar-nav .nav-link:hover::after{
+
+width:100%;
+
+}
+
+
+.navbar{
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(12px);
+padding:15px 0;
+}
+
+
+
+.navbar-nav .nav-link{
+
+color:#ddd;
+font-weight:500;
+margin-left:20px;
+transition:0.3s;
+
+}
+
+
+
+.navbar-nav .nav-link:hover{
+
+color:#f5a623;
+
+}
+
+
+
+.navbar-nav .nav-link.active{
+
+color:#f5a623;
+font-weight:600;
+
+}
+
+
+
+.navbar-nav .nav-link{
+
+position:relative;
+
+}
+
+.navbar-nav .nav-link::after{
+
+content:"";
+
+position:absolute;
+
+width:0%;
+height:2px;
+
+background:#f5a623;
+
+left:0;
+bottom:-4px;
+
+transition:0.3s;
+
+}
+
+.navbar-nav .nav-link:hover::after{
+
+width:100%;
+
+}
+
 
 .hero{
-height:400px;
+
+height:100vh;
 display:flex;
-flex-direction:column;
-justify-content:center;
 align-items:center;
+
+background:
+linear-gradient(
+90deg,
+rgba(0,0,0,0.95) 0%,
+rgba(0,0,0,0.75) 40%,
+rgba(0,0,0,0.2) 70%
+),
+
+url("{{ url_for('static', filename='assets/img/iphone-hero1.jpeg') }}");
+
+background-size:cover;
+background-position:right center;
+
+padding-left:80px;
+
+position:relative;
+
+}
+
+
+
+.hero::after{
+
+content:"";
+
+position:absolute;
+
+right:0;
+top:0;
+
+width:600px;
+height:600px;
+
+background:radial-gradient(
+circle,
+rgba(245,166,35,0.35) 0%,
+rgba(245,166,35,0) 70%
+);
+
+filter:blur(120px);
+
+}
+
+
+
+.hero-title{
+
+font-size:72px;
+font-weight:700;
+
+background:linear-gradient(90deg,#ffffff,#f5a623);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+}
+
+
+.insight-card{
+
+background:rgba(255,255,255,0.05);
+
+padding:35px;
+
+border-radius:16px;
+
+border:1px solid rgba(255,255,255,0.08);
+
+box-shadow:0 15px 40px rgba(0,0,0,0.7);
+
+transition:0.4s;
+
+}
+
+.insight-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 20px 50px rgba(245,166,35,0.4);
+
+}
+
+
+
+.insight-icon{
+
+font-size:28px;
+
+margin-bottom:10px;
+
+}
+
+
+
+.chart-card{
+
+background:rgba(255,255,255,0.05);
+
+padding:30px;
+
+border-radius:18px;
+
+border:1px solid rgba(255,255,255,0.08);
+
+box-shadow:0 20px 50px rgba(0,0,0,0.8);
+
+height:420px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+}
+.chart-card canvas{
+
+max-height:300px !important;
+width:100% !important;
+
+}
+
+.chart-card h4{
+
+margin-bottom:20px;
+
+color:#f5a623;
+
+}
+
+.hero-subtitle{
+
+font-size:22px;
+color:#dcdcdc;
+
+margin-top:10px;
+max-width:520px;
+
+}
+
+
+.market-subtitle{
+
 text-align:center;
+color:#bbbbbb;
+margin-bottom:50px;
+font-size:17px;
+
 }
 
-.hero h1{
-font-size:50px;
-font-weight:bold;
+
+
+.market-card{
+
+background:linear-gradient(
+145deg,
+rgba(255,255,255,0.05),
+rgba(255,255,255,0.02)
+);
+
+padding:35px;
+
+border-radius:18px;
+
+border:1px solid rgba(255,255,255,0.08);
+
+box-shadow:0 25px 60px rgba(0,0,0,0.8);
+
+transition:0.4s;
+
+position:relative;
+
+overflow:hidden;
+
 }
 
-.hero p{
-font-size:20px;
+
+
+.market-card::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+border-radius:18px;
+
+background:linear-gradient(
+120deg,
+transparent,
+rgba(245,166,35,0.25),
+transparent
+);
+
+opacity:0;
+transition:0.5s;
+
 }
+
+
+
+.market-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 35px 80px rgba(245,166,35,0.35);
+
+}
+
+.market-card:hover::before{
+
+opacity:1;
+
+}
+
+
+
+.chart-title{
+
+color:#f5a623;
+
+margin-bottom:20px;
+
+font-weight:600;
+
+}
+.hero-btn{
+
+display:inline-block;
+margin-top:30px;
+
+padding:16px 45px;
+
+border-radius:40px;
+
+background:linear-gradient(45deg,#ff9d00,#ffb733);
+
+color:white;
+
+font-size:18px;
+
+text-decoration:none;
+
+box-shadow:0 12px 30px rgba(245,166,35,0.6);
+
+transition:0.3s;
+
+}
+
+.hero-btn:hover{
+
+transform:translateY(-4px);
+box-shadow:0 18px 40px rgba(245,166,35,0.9);
+
+}
+
 
 
 .section{
-padding:70px 20px;
-}
-
-.section h2{
-margin-bottom:30px;
+padding:100px 0;
 }
 
 
-.dashboard-btn{
-background:#f5a623;
-color:white;
-padding:15px 40px;
-font-size:20px;
-border-radius:6px;
-text-decoration:none;
+
+.section-title{
+
+text-align:center;
+font-size:38px;
+font-weight:600;
+margin-bottom:50px;
+
+background:linear-gradient(90deg,#ffffff,#f5a623);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
 }
 
-.dashboard-btn:hover{
-background:#ffb733;
-color:white;
+
+
+.card-box{
+
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(12px);
+
+border-radius:18px;
+padding:30px;
+
+border:1px solid rgba(255,255,255,0.1);
+
+box-shadow:0 10px 30px rgba(0,0,0,0.8);
+
+transition:0.4s;
+
+}
+
+.card-box:hover{
+
+transform:translateY(-10px) scale(1.02);
+
 }
 
 
-.center-img{
-display:block;
+
+.counter{
+font-size:45px;
+font-weight:700;
+color:#f5a623;
+}
+
+
+.dashboard-subtitle{
+
+text-align:center;
+color:#aaa;
+margin-bottom:40px;
+
+}
+
+
+
+.dashboard-container{
+
+max-width:1200px;
 margin:auto;
+
+background:linear-gradient(
+145deg,
+rgba(255,255,255,0.05),
+rgba(255,255,255,0.02)
+);
+
+padding:25px;
+
+border-radius:20px;
+
+border:1px solid rgba(255,255,255,0.08);
+
+box-shadow:0 30px 80px rgba(0,0,0,0.9);
+
+}
+
+
+
+.tableauViz{
+
+width:100% !important;
+
+height:850px !important;
+
 border-radius:12px;
-max-width:100%;
+
+}
+
+
+
+.dashboard-container:hover{
+
+box-shadow:0 40px 90px rgba(245,166,35,0.35);
+
+transition:0.4s;
+
+}
+
+
+.reveal{
+
+opacity:0;
+transform:translateY(60px);
+transition:1s;
+
+}
+
+.reveal.active{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+
+
+
+footer{
+
+text-align:center;
+padding:30px;
+
+background:#111;
+color:#aaa;
+
+}
+
+
+
+@media(max-width:900px){
+
+.hero{
+padding-left:30px;
+}
+
+.hero-title{
+font-size:45px;
+}
+
 }
 
 </style>
@@ -94,32 +634,25 @@ max-width:100%;
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+
+<nav class="navbar navbar-expand-lg navbar-dark">
 
 <div class="container">
 
 <a class="navbar-brand d-flex align-items-center">
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
-width="30"
+width="26"
 style="filter:invert(1);margin-right:10px">
 
 iRevolution
 
 </a>
 
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
-
-<span class="navbar-toggler-icon"></span>
-
-</button>
-
-<div class="collapse navbar-collapse justify-content-end" id="menu">
-
-<ul class="navbar-nav">
+<ul class="navbar-nav ms-auto">
 
 <li class="nav-item">
-<a class="nav-link" href="#home">Home</a>
+<a class="nav-link" href="#">Home</a>
 </li>
 
 <li class="nav-item">
@@ -127,204 +660,365 @@ iRevolution
 </li>
 
 <li class="nav-item">
-<a class="nav-link btn btn-warning text-dark px-3 ms-3" href="#dashboard">
-View Dashboard
-</a>
+<a class="nav-link" href="#dashboard">Dashboard</a>
 </li>
 
 </ul>
 
 </div>
 
-</div>
-
 </nav>
 
-<section id="home" class="hero">
-
-<h1>iRevolution</h1>
-
-<p>A Data-Driven Exploration of Apple’s iPhone Impact in India</p>
-
-<a href="#dashboard" class="btn btn-warning btn-lg mt-3">
-
-Explore Dashboard
-
-</a>
-
-</section>
 
 
-<div class="section text-center">
+<section class="hero">
 
-<h1>iRevolution – Think DIFFERENT</h1>
+<div>
 
-</div>
+<h1 class="hero-title">iRevolution</h1>
 
-
-<div class="container">
-
-<div class="row align-items-center">
-
-<div class="col-md-3 text-center">
-
-<img src="{{ url_for('static', filename='assets/img/steve.jpg') }}"
-width="1000"
-class="center-img">
-
-</div>
-
-<div class="col-md-9">
-  <h2>About Apple and its Founder</h2>
-
-
-<p>
-
-Steve Jobs, co-founder of Apple Inc., played a crucial role in revolutionizing
-the tech industry. With his visionary leadership and passion for innovation,
-he propelled Apple to become one of the most influential companies in the world.
-
-From the iconic Apple I to the groundbreaking iPhone, Jobs consistently pushed
-the boundaries of design and functionality, setting new standards for consumer electronics.
-
+<p class="hero-subtitle">
+A Data-Driven Exploration of Apple's iPhone Impact in India
 </p>
 
-</div>
-
-</div>
-
-</div>
-
-
-<section id="about" class="section container">
-
-<div class="row align-items-center">
+<a href="#dashboard" class="hero-btn">
+Explore Dashboard
+</a>
 
 </div>
 
 </section>
+
+<section id="about" class="section container reveal">
+
+  
+  
+  
+  <img src="{{ url_for('static', filename='assets/img/iphone-evolution.png') }}"
+  class="about-image">
+  
+  </div>
+  
+  </div>
+  
+  </section>
+
+
+</div>
+
+</section>
+
+
+
+<section class="section container text-center">
+
+  <h2 class="section-title">Key Insights</h2>
+  
+  <div class="row g-4">
+  
+  <div class="col-md-3">
+  
+  <div class="insight-card">
+  
+  <div class="insight-icon">📱</div>
+  
+  <h1 class="counter" data-target="2.5">0</h1>
+  
+  <p>Billion iPhones Sold</p>
+  
+  </div>
+  
+  </div>
+  
+  
+  <div class="col-md-3">
+  
+  <div class="insight-card">
+  
+  <div class="insight-icon">👥</div>
+  
+  <h1 class="counter" data-target="1.5">0</h1>
+  
+  <p>Billion Active Users</p>
+  
+  </div>
+  
+  </div>
+  
+  
+  <div class="col-md-3">
+  
+  <div class="insight-card">
+  
+  <div class="insight-icon">📈</div>
+  
+  <h1 class="counter" data-target="31.48">0</h1>
+  
+  <p>% Market Growth</p>
+  
+  </div>
+  
+  </div>
+  
+  
+  <div class="col-md-3">
+  
+  <div class="insight-card">
+  
+  <div class="insight-icon">🌍</div>
+  
+  <h1 class="counter" data-target="190">0</h1>
+  
+  <p>Countries</p>
+  
+  </div>
+  
+  </div>
+  
+  </div>
+  
+  </section>
+
 
 
 <section class="section container">
 
-  <h2>Statistics and Facts about iPhone in India</h2>
+  <h2 class="section-title">Market Insights</h2>
   
-  <ul>
-  <li>India is one of the fastest growing smartphone markets in the world, with millions of new users adopting smartphones every year as internet access and digital services continue to expand across the country.</li>
-
-  <li>iPhone sales in India are increasing every year, driven by rising purchasing power, growing demand for premium smartphones, and Apple’s expanding presence in the Indian market.</li>
-    
-  <li>The premium design, strong security, and seamless Apple ecosystem attract many users, especially professionals and young consumers who value high performance and reliability.</li>
-    
-  <li>Apple is expanding its retail presence across major Indian cities, opening official Apple Stores and strengthening partnerships with authorized resellers to improve accessibility for customers.</li>
-    
-  <li>lAdvanced features such as powerful processors, high-quality cameras, and long-term software updates make iPhones highly attractive to users seeking premium smartphone experiences.</li>
-  
-  </ul>
-  
-  </section>
-  
-  
-  <section class="section container">
-  
-  <h2>Impact of iPhone in India</h2>
-  
-  <ul>
-  
-  <li>Economic Growth: The increasing demand for iPhones has contributed to India’s economic growth by generating revenue, boosting the smartphone market, and creating employment opportunities in retail and technology sectors.</li> 
-
-  <li>Technological Advancement: iPhones encourage innovation in mobile technology by introducing advanced hardware, software integration, and high-performance applications that influence the entire smartphone industry.</li> 
-    
-  <li>Consumer Behavior: The premium experience and brand value of iPhones have influenced consumer preferences, encouraging users to prioritize quality, performance, and long-term device reliability.</li> 
-    
-  <li>Digital Empowerment: iPhones enable users to access digital services such as online education, banking, healthcare, and communication platforms, helping people stay connected and participate in the digital economy.</li>
-  
-  </ul>
-  
-  </section>
-  
-  
-  <section class="section container">
-  
-  <p>
-  
-  The iPhone’s presence in India has had a significant impact on various aspects:
-  
-  <br><br>
-  
-  <b>Economic Growth:</b> The growth of Apple’s iPhone sales in India has contributed to the country’s economic development, generating revenue and creating job opportunities in the tech sector.
-  
-  <br><br>
-  
-  <b>Technological Advancement:</b> The iPhone’s cutting-edge technology has influenced the development and adoption of advanced mobile applications and services in India.
-  
-  <br><br>
-  
-  <b>Changing Consumer Behavior:</b> The iPhone’s user-friendly interface and premium experience have shaped consumer preferences and expectations, leading to a demand for high-quality smartphones.
-  
-  <br><br>
-  
-  <b>Digital Empowerment:</b> The iPhone has enabled individuals in India to access a wide range of digital resources, empowering them to connect, learn, and engage in various aspects of life.
-  
+  <p class="market-subtitle">
+  Interactive visualizations highlighting smartphone brand competition
+  and iPhone model distribution trends.
   </p>
   
+  <div class="row g-4">
+  
+  <div class="col-lg-6">
+  
+  <div class="market-card">
+  
+  <h4 class="chart-title">Brand Market Share</h4>
+  
+  <canvas id="marketChart"></canvas>
+  
+  </div>
+  
+  </div>
+  
+  
+  <div class="col-lg-6">
+  
+  <div class="market-card">
+  
+  <h4 class="chart-title">iPhone Model Distribution</h4>
+  
+  <canvas id="iphoneChart"></canvas>
+  
+  </div>
+  
+  </div>
+  
+  </div>
+  
   </section>
   
+  
+  
+ 
+
+
+<section id="dashboard" class="section">
+
+  <div class="container">
+  
+  <h2 class="section-title">Interactive Tableau Dashboard</h2>
+
+  
+  <div class="dashboard-container">
+
+    <div class='tableauPlaceholder' id='vizDashboard' style='position: relative'>
+    
+    <noscript>
+    <a href='#'>
+    <img alt='Dashboard'
+    src='https://public.tableau.com/static/images/da/dashboard2_17722817895090/Dashboard2/1_rss.png'
+    style='border:none'/>
+    </a>
+    </noscript>
+    
+    <object class='tableauViz' style='display:none;'>
+    
+    <param name='host_url' value='https://public.tableau.com/'/>
+    
+    <param name='embed_code_version' value='3'/>
+    
+    <param name='path' value='views/dashboard2_17722817895090/Dashboard2'/>
+    
+    <param name='toolbar' value='yes'/>
+    
+    <param name='tabs' value='no'/>
+    
+    </object>
+    
+    </div>
+    
+    </div>
+  
+  </div>
+  
+  </div>
+  
+  </section>
   <section class="section text-center">
-  
-  <img src="{{ url_for('static', filename='assets/img/iphone1.jpg') }}"
-  style="max-width:900px;width:100%;border-radius:12px">
-  
-  </section>
-<div class="section text-center">
 
-<a href="#dashboard" class="dashboard-btn">
+    <h2 class="section-title">AI Powered Prediction</h2>
+    
+    <p style="color:#ccc; margin-bottom:30px;">
+    Use our machine learning model to classify smartphones based on price and RAM.
+    </p>
+    
+    <a href="/predict" class="hero-btn">
+    AI Smartphone Prediction
+    </a>
+    
+    </section>
+<footer>
 
-View Dashboard
+<p>iRevolution Project | Data Visualization using Tableau</p>
 
-</a>
-
-</div>
-
-<section id="dashboard" class="section container">
-
-<h2 class="text-center mb-5">iRevolution Dashboard</h2>
-
-<div class='tableauPlaceholder' id='viz1' style='position: relative'>
-
-<noscript>
-
-<a href='#'>
-
-<img alt='Dashboard'
-
-src='https://public.tableau.com/static/images/iR/iRevolutionDashboard/Dashboard2/1_rss.png'
-
-style='border: none'/>
-
-</a>
-
-</noscript>
-
-<object class='tableauViz' style='display:none;'>
-
-<param name='host_url' value='https://public.tableau.com/'/>
-
-<param name='name' value='iRevolutionDashboard/Dashboard2'/>
-
-<param name='tabs' value='no'/>
-
-<param name='toolbar' value='yes'/>
-
-</object>
-
-</div>
-
-</section>
+</footer>
 
 <script>
 
-var divElement=document.getElementById('viz1');
+
+
+const counters=document.querySelectorAll('.counter');
+
+counters.forEach(counter=>{
+
+counter.innerText='0';
+
+const update=()=>{
+
+const target=+counter.getAttribute('data-target');
+const c=+counter.innerText;
+
+const increment=target/200;
+
+if(c<target){
+
+counter.innerText=Math.ceil(c+increment);
+setTimeout(update,10);
+
+}else{
+
+counter.innerText=target;
+
+}
+
+};
+
+update();
+
+});
+
+
+
+new Chart(document.getElementById('marketChart'),{
+
+type:'bar',
+
+data:{
+labels:['Apple','Samsung','Xiaomi','OnePlus','Others'],
+datasets:[{
+label:'Market Share',
+data:[28,35,18,10,9],
+backgroundColor:[
+'#f5a623',
+'#ffb84d',
+'#ffcc80',
+'#ffaa33',
+'#666'
+],
+borderRadius:8
+}]
+},
+
+options:{
+plugins:{
+legend:{display:false}
+},
+scales:{
+x:{
+ticks:{color:'#ccc'},
+grid:{display:false}
+},
+y:{
+ticks:{color:'#ccc'},
+grid:{color:'rgba(255,255,255,0.05)'}
+}
+}
+}
+
+});
+new Chart(document.getElementById('iphoneChart'),{
+
+type:'doughnut',
+
+data:{
+labels:['iPhone 13','iPhone 14','iPhone 15','Older Models'],
+datasets:[{
+data:[30,25,20,25],
+backgroundColor:[
+'#f5a623',
+'#ffb84d',
+'#ffcc66',
+'#666666'
+],
+borderWidth:2,
+borderColor:'#111'
+}]
+},
+
+options:{
+plugins:{
+legend:{
+labels:{
+color:'#ddd'
+}
+}
+}
+}
+
+});
+
+
+
+function reveal(){
+
+var reveals=document.querySelectorAll(".reveal");
+
+for(var i=0;i<reveals.length;i++){
+
+var windowHeight=window.innerHeight;
+
+var elementTop=reveals[i].getBoundingClientRect().top;
+
+var elementVisible=100;
+
+if(elementTop < windowHeight - elementVisible){
+
+reveals[i].classList.add("active");
+
+}
+
+}
+
+}
+
+window.addEventListener("scroll",reveal);
+
+
+var divElement=document.getElementById('vizDashboard');
 var vizElement=divElement.getElementsByTagName('object')[0];
 
 vizElement.style.width='100%';
@@ -334,10 +1028,7 @@ var scriptElement=document.createElement('script');
 scriptElement.src='https://public.tableau.com/javascripts/api/viz_v1.js';
 
 vizElement.parentNode.insertBefore(scriptElement,vizElement);
-
 </script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
