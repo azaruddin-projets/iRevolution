@@ -100,13 +100,13 @@ irevolution/
 
 The application is deployed using Render Cloud Platform:
 
-🔗 Live Demo: (Add your Render link here after deployment)
+🔗 Live Demo: (https://irevolution.onrender.com/)
 
 ---
 
 🧪 Installation & Setup (Local)
 
-git clone https://github.com/YOUR_USERNAME/irevolution.git
+git clone https://github.com/azaruddin-projets/irevolution.git
 cd irevolution
 pip install -r requirements.txt
 python app.py
